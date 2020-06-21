@@ -1,56 +1,28 @@
-/*************************************
- * logger(array)
- *
- * - Accepts an array
- * - Logs every element of the array
- ************************************/
-const logger = function(array) {
-  // Your code here
+const logger = function (array) {
+  array.forEach((elements) => console.log(elements));
+};
+logger([1, 9, 9, 4]);
+
+//____________________________________________________________________
+const toCelsius = function (temperatures) {
+  return temperatures.map((tempInC) => (tempInC - 32) * (5 / 9));
+  //return Celsius,
+};
+console.log(toCelsius([32, 59, 122, 28.4]));
+//____________________________________________________________________
+const hottestDays = function (temperatures, threshhold) {
+  return temperatures.filter(
+    (largerthanthreshhold) => largerthanthreshhold > threshhold
+  );
 };
 
-/*************************************
- * toCelsius(temperatures)
- *
- * - Accepts an array of temperatures
- *   in degrees Fahrenheit
- * - Returns an array of temperatures
- *   in degrees Celsius
- *
- * The conversion is:
- *   C = (F - 32) * (5/9)
- ************************************/
-const toCelsius = function(temperatures) {
-  // Your code here
+console.log(hottestDays([32, 59, 122, 28.4], 35));
+//____________________________________________________________________
+const logHottestDays = function (temperatures, threshhold) {
+  const hd = hottestDays(temperatures, threshhold);
+  const hCd = toCelsius(hd);
+  logger(hCd);
 };
-
-/**************************************
- * hottestDays(temperatures, threshhold)
- *
- * - Accepts an array of temperatures
- * - Accepts a threshhold temperature
- * - Returns an array of temperatures
- *   that exceed the threshhold
- ***************************************/
-const hottestDays = function(temperatures, threshhold) {
-  // Your code here
-};
-
-/******************************************
- * logHottestDays(temperatures, threshhold)
- *
- * - Accepts an array of temperatures
- *   IN DEGREES FAHRENHEINT
- * - Accepts a threshhold temperature
- *   IN DEGREES FAHRENHEINT
- * - Logs temperatures that exceed the
- *   threshhold to the console
- *   IN DEGREES CELSIUS
- *
- * hint: you can combine
- *       all previous functions
- *******************************************/
-const logHottestDays = function(temperatures, threshhold) {
-  // Your code here
-};
-
-export { logger, toCelsius, hottestDays, logHottestDays };
+logHottestDays([32, 59, 122, 28.4], 35);
+//____________________________________________________________________
+module.exports = { logger, toCelsius, hottestDays, logHottestDays };
